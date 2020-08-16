@@ -23,8 +23,18 @@ export default class ChatApp extends Vue {
   @Prop() private status!: string;
 
   messages = [
-    new Message(1, "That sounds great. I'd be happy with that.", 'outgoing'),
-    new Message(2, "That sounds great. I'd be happy with that.", 'outgoing'),
+    new Message(1, "That sounds great. I'd be happy with that.", 'incoming'),
+    new Message(
+      2,
+      'Could you send over some pictures of your dog, please?',
+      'incoming'
+    ),
+    new Message(3, '', 'outgoing'),
+    new Message(4, "That sounds great. I'd be happy with that. ", 'outgoing'),
+    new Message(5, "That sounds great. I'd be happy with that.", 'outgoing'),
+    new Message(6, "That sounds great. I'd be happy with that.", 'incoming'),
+    new Message(7, "That sounds great. I'd be happy with that.", 'incoming'),
+    new Message(8, "That sounds great. I'd be happy with that.", 'incoming'),
   ];
 }
 </script>

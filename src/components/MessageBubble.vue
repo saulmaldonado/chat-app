@@ -1,10 +1,8 @@
 <template>
-  <div class="bubble">
-    <div>
-      <p>
-        {{ message.text }}
-      </p>
-    </div>
+  <div class="bubble" :class="direction">
+    <p>
+      {{ message.text }}
+    </p>
   </div>
 </template>
 
@@ -25,6 +23,10 @@ export default class MessageBubble extends Vue {
     type: Message,
   })
   message!: Message;
+
+  get direction() {
+    return this.message.direction === 'outgoing' ? 'outgoing' : 'incoming';
+  }
 }
 </script>
 

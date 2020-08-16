@@ -1,8 +1,10 @@
 <template>
   <div class="messages">
-    <div v-for="message in messages" :key="message.id">
-      <MessageBubble :message="message" />
-    </div>
+    <MessageBubble
+      v-for="message in messages"
+      :key="message.id"
+      :message="message"
+    />
   </div>
 </template>
 

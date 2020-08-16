@@ -1,6 +1,25 @@
 .messages {
-  height: 100%;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  border-radius: 5px;
+  overflow-y: scroll;
+
+  flex-grow: 1;
+  box-sizing: border-box;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  padding-left: 10px;
+  padding-right: 10px;
+
   display: flex;
   flex-direction: column;
+
   justify-content: flex-end;
 }
