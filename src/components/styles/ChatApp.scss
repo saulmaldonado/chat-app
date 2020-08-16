@@ -1,0 +1,35 @@
+@import './variables';
+
+.frame {
+  border: black solid 2px;
+  height: 609px;
+  width: 281px;
+  border-radius: 40px;
+  box-shadow: $shadow;
+  background-color: white;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.frame::after {
+  content: '';
+  position: absolute;
+  margin: auto;
+  top: 10px;
+  left: 25%;
+  width: 50%;
+  height: 4%;
+  border-radius: 0 0 16px 16px;
+  background: white;
+}
+
+.content {
+  background-color: $lightGrey;
+  height: 100%;
+  width: 100%;
+  border-radius: 40px;
+}
