@@ -36,5 +36,9 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
+  outline: none;
+  *:focus {
+    outline: none;
+  }
 }
 </style>

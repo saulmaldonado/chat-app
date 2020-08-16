@@ -1,0 +1,50 @@
+@import './variables';
+
+form {
+  border-radius: 20px;
+
+  background-color: $white;
+
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+
+  display: flex;
+  justify-content: space-between;
+
+  padding: 5px;
+}
+
+input[name='message'] {
+  margin-left: 10px;
+  box-sizing: border-box;
+  padding: 5px;
+
+  border: none;
+
+  background: transparent;
+}
+
+.submit-chevron {
+  filter: invert(1);
+  height: 15px;
+  width: 10px;
+  transform: translateX(1px);
+}
+
+input[name='message']::placeholder {
+  margin-left: 5px;
+  font-size: 0.7rem;
+}
+
+button[type='submit'] {
+  border-radius: 50%;
+  border: none;
+  color: $white;
+  height: 30px;
+  width: 30px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

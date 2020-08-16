@@ -2,6 +2,7 @@
   <div class="frame">
     <div class="content">
       <Navigation v-bind:name="name" v-bind:status="status" />
+      <InputField />
     </div>
   </div>
 </template>
@@ -9,9 +10,10 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import Navigation from './Navigation.vue';
+import InputField from './InputField.vue';
 
 @Component({
-  components: { Navigation },
+  components: { Navigation, InputField },
 })
 export default class ChatApp extends Vue {
   @Prop() private name!: string;

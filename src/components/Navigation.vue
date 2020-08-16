@@ -1,7 +1,7 @@
 <template>
   <header class="navigation">
     <img
-      src="./chevron-left-solid.svg"
+      src="../assets/images/chevron-left-solid.svg"
       height="15"
       width="7.5"
       class="left-chevron"
