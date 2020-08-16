@@ -1,0 +1,17 @@
+@import './variables';
+
+.bubble {
+  max-width: 60%;
+  padding: 5px;
+  border-radius: 15px 15px 15px 5px;
+  margin-top: 10px;
+
+  background-color: $paleViolet;
+}
+
+p {
+  color: $moderateViolet;
+  font-size: 0.75rem;
+  text-align: left;
+  margin: 5px;
+}

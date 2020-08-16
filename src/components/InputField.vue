@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form v-on:submit.prevent="onSubmit">
     <input name="message" type="text" placeholder="Type a message..." />
     <button type="submit">
       <img
