@@ -3,7 +3,7 @@
     <div class="content">
       <Navigation :name="name" :status="status" />
       <Chat :messages="messages" />
-      <InputField />
+      <InputField :addMessage="addMessage" />
     </div>
   </div>
 </template>
@@ -22,6 +22,10 @@ export default class ChatApp extends Vue {
   @Prop() private name!: string;
   @Prop() private status!: string;
 
+  addMessage(message: Message) {
+    this.messages.push(message);
+  }
+
   messages = [
     new Message(1, "That sounds great. I'd be happy with that.", 'incoming'),
     new Message(
@@ -30,9 +34,13 @@ export default class ChatApp extends Vue {
       'incoming'
     ),
     new Message(3, '', 'outgoing'),
-    new Message(4, "That sounds great. I'd be happy with that. ", 'outgoing'),
-    new Message(5, "That sounds great. I'd be happy with that.", 'outgoing'),
-    new Message(6, "That sounds great. I'd be happy with that.", 'incoming'),
+    new Message(4, "Here are a few pictures. She's a happy girl!", 'outgoing'),
+    new Message(5, 'Can you make it?', 'outgoing'),
+    new Message(
+      6,
+      'She looks so happy! The time we discussed works. How long shall I take her out for?',
+      'incoming'
+    ),
     new Message(7, "That sounds great. I'd be happy with that.", 'incoming'),
     new Message(8, "That sounds great. I'd be happy with that.", 'incoming'),
   ];
