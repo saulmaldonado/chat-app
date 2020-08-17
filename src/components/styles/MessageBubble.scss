@@ -1,7 +1,8 @@
 @import './variables';
+@import './mixins';
 
 .bubble {
-  max-width: 60%;
+  max-width: 65%;
   padding: 3px;
 }
 
@@ -27,6 +28,29 @@
 
   background-color: $paleViolet;
   color: $moderateViolet;
+}
+
+.bubble.image {
+  background: transparent;
+  box-shadow: none;
+
+  div {
+    @include hide-scrollbar;
+
+    display: flex;
+
+    overflow-x: scroll;
+  }
+
+  img {
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+  }
+
+  img:not(:first-child) {
+    margin-left: 5px;
+  }
 }
 
 p {

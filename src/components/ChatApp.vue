@@ -14,6 +14,7 @@ import Navigation from './Navigation.vue';
 import InputField from './InputField.vue';
 import MessageBubble, { Message } from './MessageBubble.vue';
 import Chat from './Chat.vue';
+import images from './base64Images';
 
 @Component({
   components: { Navigation, InputField, MessageBubble, Chat },
@@ -42,10 +43,7 @@ export default class ChatApp extends Vue {
       'incoming'
     ),
     new Message(7, "That sounds great. I'd be happy with that.", 'incoming'),
-    new Message(8, "That sounds great. I'd be happy with that.", 'incoming'),
-    new Message(8, "That sounds great. I'd be happy with that.", 'incoming'),
-    new Message(8, "That sounds great. I'd be happy with that.", 'incoming'),
-    new Message(8, "That sounds great. I'd be happy with that.", 'incoming'),
+    new Message(9, [images.image1, images.image2, images.image3], 'outgoing'),
   ];
 }
 </script>

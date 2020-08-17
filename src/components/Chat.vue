@@ -19,7 +19,21 @@ import MessageBubble from './MessageBubble.vue';
 export default class Chat extends Vue {
   @Prop({
     type: Array,
-    validator: (value: unknown[]) => value.every(v => v instanceof Message),
+    validator: (value: unknown[]) =>
+      value.every((v) => {
+        return (
+          v instanceof Message &&
+          (() => {
+            if (Array.isArray(v.text)) {
+              return v.text.every((v) =>
+                v.startsWith('data:image/jpeg;base64')
+              );
+            } else {
+              return true;
+            }
+          })
+        );
+      }),
   })
   messages!: Message[];
 }
