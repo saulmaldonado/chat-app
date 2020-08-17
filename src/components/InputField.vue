@@ -28,6 +28,7 @@ export default class InputField extends Vue {
 
   onSubmit() {
     this.addMessage(new Message(10, this.text, 'outgoing'));
+    this.text = '';
   }
 }
 </script>

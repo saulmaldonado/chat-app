@@ -5,6 +5,10 @@
   padding: 3px;
 }
 
+.bubble:first-child {
+  margin-top: auto;
+}
+
 .bubble:not(:first-child) {
   margin-top: 10px;
 }

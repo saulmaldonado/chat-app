@@ -8,18 +8,13 @@
   scrollbar-width: none; /* Firefox */
 
   border-radius: 5px;
-  overflow-y: scroll;
 
-  flex-grow: 1;
   box-sizing: border-box;
-  margin-top: 10px;
-  margin-bottom: 10px;
-
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 10px;
 
   display: flex;
   flex-direction: column;
+  flex: 1 1 auto;
 
-  justify-content: flex-end;
+  overflow: scroll;
 }
