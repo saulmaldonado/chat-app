@@ -1,11 +1,19 @@
 <template>
   <div class="bubble" :class="[direction, isImage, isCheckbox]">
     <div v-if="Array.isArray(message.text)">
-      <img v-for="(image, index) in message.text" :src="image" :key="index" />
+      <img
+        v-for="(image, index) in message.text"
+        :src="image"
+        :key="index"
+      />
     </div>
-    <label v-else-if="message.price" for="select">
+    <label v-else-if="message.price" :for="'select' + message.id">
       <div>
-        <input type="checkbox" name="select" id="select" />
+        <input
+          type="checkbox"
+          :name="'select-' + message.id"
+          :id="'select-' + message.id"
+        />
         <span class="checkbox-message">{{ message.text }}</span>
       </div>
       <span class="checkbox-price">${{ message.price }}</span>
@@ -35,7 +43,9 @@ export default class MessageBubble extends Vue {
 
   //methods declare bubble styles
   get direction() {
-    return this.message.direction === 'outgoing' ? 'outgoing' : 'incoming';
+    return this.message.direction === 'outgoing'
+      ? 'outgoing'
+      : 'incoming';
   }
 
   get isImage() {
