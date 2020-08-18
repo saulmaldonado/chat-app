@@ -34,7 +34,7 @@ export default class ChatApp extends Vue {
       'Could you send over some pictures of your dog, please?',
       'incoming'
     ),
-    new Message(3, 'c ', 'outgoing'),
+    new Message(9, [images.image1, images.image2, images.image3], 'outgoing'),
     new Message(4, "Here are a few pictures. She's a happy girl!", 'outgoing'),
     new Message(5, 'Can you make it?', 'outgoing'),
     new Message(
@@ -42,8 +42,8 @@ export default class ChatApp extends Vue {
       'She looks so happy! The time we discussed works. How long shall I take her out for?',
       'incoming'
     ),
-    new Message(7, "That sounds great. I'd be happy with that.", 'incoming'),
-    new Message(9, [images.image1, images.image2, images.image3], 'outgoing'),
+    new Message(8, '30 minute walk', 'incoming', 29),
+    new Message(10, '1 hour walk', 'incoming', 49),
   ];
 }
 </script>

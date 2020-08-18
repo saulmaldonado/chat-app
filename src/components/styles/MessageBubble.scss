@@ -53,6 +53,54 @@
   }
 }
 
+.bubble.checkbox {
+  max-width: 100%;
+  width: 80%;
+  padding: 10px;
+  padding-left: 15px;
+  line-height: 100%;
+  background-image: $gradientRev;
+  display: flex;
+
+  input[type='checkbox'] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    height: 15px;
+    width: 15px;
+    border: 1px solid $white;
+    vertical-align: middle;
+    border-radius: 50%;
+    transition-duration: 0.2s;
+  }
+
+  input[type='checkbox']:checked {
+    background-color: $white;
+  }
+
+  label {
+    font-size: 0.7rem;
+    color: $white;
+    width: 90%;
+    display: flex;
+    cursor: pointer;
+    justify-content: space-between;
+
+    .checkbox-message {
+      margin-left: 10px;
+    }
+
+    .checkbox-price {
+      font-weight: 700;
+      font-size: 1.1rem;
+      position: relative;
+
+      line-height: 22px;
+    }
+  }
+}
+
 p {
   font-size: 0.7rem;
   text-align: left;
