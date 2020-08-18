@@ -7,7 +7,7 @@
         :key="index"
       />
     </div>
-    <label v-else-if="message.price" :for="'select' + message.id">
+    <label v-else-if="message.price" :for="'select-' + message.id">
       <div>
         <input
           type="checkbox"
