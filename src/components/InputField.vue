@@ -65,7 +65,6 @@ export default class InputField extends Vue {
   async uploadFiles(files: FileList | null) {
     if (files) {
       for (let i = 0; i < files.length; i++) {
-        // eslint-disable-next-line
         this.sendMessage(await files.item(i)!.arrayBuffer());
       }
       // cleanup

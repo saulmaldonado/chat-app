@@ -55,7 +55,6 @@ export default class ChatApp extends Vue {
     this.io = socketio(this.socket.hostname);
 
     this.io.on('connect', () => {
-      // eslint-disable-next-line
       this.socketID = this.io!.id;
     });
 
@@ -83,7 +82,6 @@ export default class ChatApp extends Vue {
   }
 
   sendMessage(message: string | ArrayBuffer) {
-    // eslint-disable-next-line
     this.io!.emit(this.socket.sendMessageEvent, message);
   }
 
@@ -93,7 +91,11 @@ export default class ChatApp extends Vue {
         this.messages.length - 1
       ];
 
-      if (lastItem && Array.isArray(lastItem.text)) {
+      if (
+        lastItem &&
+        Array.isArray(lastItem.text) &&
+        lastItem.direction === message.direction
+      ) {
         return lastItem.text.push(...message.text);
       }
     }
