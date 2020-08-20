@@ -22,12 +22,12 @@ import { Message } from './MessageBubble.vue';
 
 @Component
 export default class InputField extends Vue {
-  @Prop({ type: Function }) addMessage!: (messages: Message) => void;
+  @Prop({ type: Function }) sendMessage!: (message: string) => void;
 
   text = '';
 
   onSubmit() {
-    this.addMessage(new Message(10, this.text, 'outgoing'));
+    this.sendMessage(this.text);
     this.text = '';
   }
 }

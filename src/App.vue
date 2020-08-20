@@ -1,6 +1,13 @@
 <template>
   <div id="app">
-    <ChatApp name="Samuel Green" status="Available to Walk" />
+    <ChatApp
+      name="Samuel Green"
+      status="Available to Walk"
+      :socket="{
+        hostname: 'http://192.168.29.192:5000',
+        sendMessageEvent: 'SEND_MESSAGE',
+      }"
+    />
   </div>
 </template>
 
