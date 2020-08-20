@@ -38,3 +38,10 @@
 
   justify-content: space-between;
 }
+
+@media (max-height: 620px) {
+  .frame {
+    height: 550px;
+    width: 271px;
+  }
+}
