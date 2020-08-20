@@ -4,6 +4,8 @@
 .bubble {
   max-width: 65%;
   padding: 3px;
+
+  box-sizing: border-box;
 }
 
 .bubble:first-child {
@@ -28,6 +30,8 @@
 
   background-color: $paleViolet;
   color: $moderateViolet;
+
+  align-self: flex-start;
 }
 
 .bubble.image {

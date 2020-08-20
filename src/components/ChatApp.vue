@@ -23,6 +23,11 @@ type SocketConnectionConfig = {
   sendMessageEvent: string;
 };
 
+type SocketSendMessagePayload = {
+  message: string;
+  id: string;
+};
+
 @Component({
   components: { Navigation, InputField, MessageBubble, Chat },
 })
@@ -34,17 +39,25 @@ export default class ChatApp extends Vue {
   mockIncrementingID = 1;
 
   io?: SocketIOClient.Socket;
+  socketID?: string;
 
   mounted() {
-    console.log(this.socket.sendMessageEvent);
     this.io = socketio(this.socket.hostname);
 
-    this.io.on(this.socket.sendMessageEvent, (message: string) => {
-      console.log('newmessage');
-      this.addMessage(
-        new Message(this.mockIncrementingID++, message, 'incoming')
-      );
+    this.io.on('connect', (socket: any) => {
+      this.socketID = this.io!.id;
     });
+
+    this.io.on(
+      this.socket.sendMessageEvent,
+      ({ message, id }: SocketSendMessagePayload) => {
+        const direction =
+          id === this.socketID ? 'outgoing' : 'incoming';
+        this.addMessage(
+          new Message(this.mockIncrementingID++, message, direction)
+        );
+      }
+    );
   }
 
   sendMessage(message: string) {
