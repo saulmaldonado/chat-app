@@ -6,6 +6,8 @@
   padding: 3px;
 
   box-sizing: border-box;
+
+  @include word-wrap();
 }
 
 .bubble:first-child {
