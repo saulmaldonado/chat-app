@@ -25,9 +25,7 @@ export default class Chat extends Vue {
           v instanceof Message &&
           (() => {
             if (Array.isArray(v.text)) {
-              return v.text.every((v) =>
-                v.startsWith('data:image/jpeg;base64')
-              );
+              return v.text.every((v) => v.startsWith('blob:'));
             } else {
               return true;
             }

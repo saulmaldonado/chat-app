@@ -8,7 +8,11 @@ $white: hsl(0, 0%, 100%);
 $lightGrey: hsl(0, 0%, 90%);
 
 /* theme gradient*/
-$gradient: linear-gradient(to right, hsl(264, 100%, 61%), hsl(293, 100%, 63%));
+$gradient: linear-gradient(
+  to right,
+  hsl(264, 100%, 61%),
+  hsl(293, 100%, 63%)
+);
 $gradientRev: linear-gradient(
   to right,
   hsl(293, 100%, 63%),

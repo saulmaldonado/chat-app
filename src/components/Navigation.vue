@@ -6,7 +6,11 @@
       width="7.5"
       class="left-chevron"
     />
-    <img src="../assets/images/avatar.jpg" alt="avatar" class="avatar" />
+    <img
+      src="../assets/images/avatar.jpg"
+      alt="avatar"
+      class="avatar"
+    />
     <div class="recipient-info">
       <p class="name">{{ name }}</p>
       <p class="status">{{ status }}</p>

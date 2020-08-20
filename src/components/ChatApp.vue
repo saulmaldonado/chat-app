@@ -16,7 +16,6 @@ import Navigation from './Navigation.vue';
 import InputField from './InputField.vue';
 import MessageBubble, { Message } from './MessageBubble.vue';
 import Chat from './Chat.vue';
-// import images from './base64Images';
 
 type SocketConnectionConfig = {
   hostname: string;
@@ -24,7 +23,7 @@ type SocketConnectionConfig = {
 };
 
 type SocketSendMessagePayload = {
-  message: string;
+  message: string | ArrayBuffer;
   id: string;
 };
 
@@ -36,15 +35,27 @@ export default class ChatApp extends Vue {
   @Prop() private status!: string;
   @Prop() private socket!: SocketConnectionConfig;
 
+  $refs!: {
+    test: HTMLImageElement;
+  };
+
   mockIncrementingID = 1;
 
   io?: SocketIOClient.Socket;
   socketID?: string;
 
+  ArrayBufferToURL(message: ArrayBuffer): string {
+    const uint = new Uint8Array(message);
+    const blob = new Blob([uint], { type: 'image/jpeg' });
+    const urlCreator = URL;
+    return urlCreator.createObjectURL(blob);
+  }
+
   mounted() {
     this.io = socketio(this.socket.hostname);
 
-    this.io.on('connect', (socket: any) => {
+    this.io.on('connect', () => {
+      // eslint-disable-next-line
       this.socketID = this.io!.id;
     });
 
@@ -53,18 +64,39 @@ export default class ChatApp extends Vue {
       ({ message, id }: SocketSendMessagePayload) => {
         const direction =
           id === this.socketID ? 'outgoing' : 'incoming';
-        this.addMessage(
-          new Message(this.mockIncrementingID++, message, direction)
-        );
+        if (typeof message === 'string') {
+          this.addMessage(
+            new Message(this.mockIncrementingID++, message, direction)
+          );
+        } else {
+          const imageURL = this.ArrayBufferToURL(message);
+          this.addMessage(
+            new Message(
+              this.mockIncrementingID++,
+              [imageURL],
+              direction
+            )
+          );
+        }
       }
     );
   }
 
-  sendMessage(message: string) {
+  sendMessage(message: string | ArrayBuffer) {
+    // eslint-disable-next-line
     this.io!.emit(this.socket.sendMessageEvent, message);
   }
 
   addMessage(message: Message) {
+    if (Array.isArray(message.text)) {
+      const lastItem: Message | undefined = this.messages[
+        this.messages.length - 1
+      ];
+
+      if (lastItem && Array.isArray(lastItem.text)) {
+        return lastItem.text.push(...message.text);
+      }
+    }
     this.messages.push(message);
   }
 
