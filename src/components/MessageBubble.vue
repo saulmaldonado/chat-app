@@ -1,21 +1,11 @@
 <template>
   <div class="bubble" :class="[direction, isImage, isCheckbox]">
     <div v-if="Array.isArray(message.text)">
-      <img
-        v-for="(image, index) in message.text"
-        :src="image"
-        :key="index"
-      />
+      <img v-for="(image, index) in message.text" :src="image" :key="index" />
     </div>
     <label v-else-if="message.price" :for="'select-' + message.id">
-      <div>
-        <input
-          type="checkbox"
-          :name="'select-' + message.id"
-          :id="'select-' + message.id"
-        />
-        <span class="checkbox-message">{{ message.text }}</span>
-      </div>
+      <input type="checkbox" :name="'select-' + message.id" :id="'select-' + message.id" />
+      <span class="checkbox-message">{{ message.text }}</span>
       <span class="checkbox-price">${{ message.price }}</span>
     </label>
     <p v-else>{{ message.text }}</p>
@@ -30,7 +20,7 @@ export class Message {
     public id: number,
     public text: string | string[],
     public direction: 'outgoing' | 'incoming',
-    public price?: number
+    public price?: number | null
   ) {}
 }
 

@@ -25,7 +25,7 @@ type SocketConnectionConfig = {
 type SocketSendMessagePayload = {
   message: string | ArrayBuffer;
   id: string;
-  price?: number;
+  price?: number | null;
 };
 
 @Component({
@@ -87,8 +87,8 @@ export default class ChatApp extends Vue {
     );
   }
 
-  sendMessage(message: string | ArrayBuffer) {
-    this.io!.emit(this.socket.sendMessageEvent, message);
+  sendMessage(message: string | ArrayBuffer, price?: number | null) {
+    this.io!.emit(this.socket.sendMessageEvent, message, price);
   }
 
   addMessage(message: Message) {

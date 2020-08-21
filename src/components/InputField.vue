@@ -1,36 +1,29 @@
 <template>
   <form @submit.prevent="onSubmit">
-    <input
-      v-model="text"
-      name="message"
-      type="text"
-      placeholder="Type a message..."
-    />
-    <input
-      type="file"
-      id="pictures"
-      name="pictures"
-      accept="image/jpeg"
-      ref="pictures"
-      multiple
-    />
-    <button class="price-select">
+    <input v-model="text" name="message" type="text" placeholder="Type a message..." />
+    <input type="file" id="pictures" name="pictures" accept="image/jpeg" ref="pictures" multiple />
+    <div class="price-select" ref="dollarIcon" v-on:click="focusPriceInput">
       <div class="price-popup">
-        <input type="number" min="1" max="999" />
+        $
+        <input
+          type="number"
+          min="1"
+          max="999"
+          v-model="price"
+          ref="priceInput"
+          v-on:blur="usFocusPriceInput"
+        />
       </div>
-      <img
-        src="../assets/images/dollar-sign-solid.svg"
-        alt="add-price"
-        class="add-price"
-      />
-    </button>
+      <div class="dollar-icon">
+        <div class="price-counter" :style="{ display: price ? 'block' : 'none' }">${{ price }}</div>
+        <img src="../assets/images/dollar-sign-solid.svg" alt="add-price" class="add-price" />
+      </div>
+    </div>
     <div class="picture-select">
       <div
         class="image-counter"
         :style="{ display: picturesCount ? 'block' : 'none' }"
-      >
-        {{ picturesCount }}
-      </div>
+      >{{ picturesCount }}</div>
       <img
         src="../assets/images/camera-solid.svg"
         alt="upload-pictures"
@@ -40,11 +33,7 @@
     </div>
 
     <button type="submit">
-      <img
-        src="../assets/images/chevron-right-solid.svg"
-        alt="submit"
-        class="submit-chevron"
-      />
+      <img src="../assets/images/chevron-right-solid.svg" alt="submit" class="submit-chevron" />
     </button>
   </form>
 </template>
@@ -55,7 +44,8 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 @Component
 export default class InputField extends Vue {
   @Prop({ type: Function }) sendMessage!: (
-    message: string | ArrayBuffer
+    message: string | ArrayBuffer,
+    price?: number | null
   ) => void;
 
   mounted() {
@@ -66,6 +56,8 @@ export default class InputField extends Vue {
 
   $refs!: {
     pictures: HTMLInputElement;
+    priceInput: HTMLInputElement;
+    dollarIcon: HTMLButtonElement;
   };
 
   promptFileUpload() {
@@ -85,14 +77,25 @@ export default class InputField extends Vue {
 
   picturesCount = 0;
   text = '';
+  price = null;
 
   async onSubmit() {
     if (this.text) {
-      this.sendMessage(this.text);
+      this.sendMessage(this.text, this.price);
       this.text = '';
+      this.price = null;
     }
     const files = this.$refs.pictures.files;
     await this.uploadFiles(files);
+  }
+
+  focusPriceInput() {
+    this.$refs.dollarIcon.classList.add('active');
+    this.$refs.priceInput.focus();
+  }
+
+  usFocusPriceInput() {
+    this.$refs.dollarIcon.classList.remove('active');
   }
 }
 </script>
