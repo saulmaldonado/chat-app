@@ -14,6 +14,16 @@
       ref="pictures"
       multiple
     />
+    <button class="price-select">
+      <div class="price-popup">
+        <input type="number" min="1" max="999" />
+      </div>
+      <img
+        src="../assets/images/dollar-sign-solid.svg"
+        alt="add-price"
+        class="add-price"
+      />
+    </button>
     <div class="picture-select">
       <div
         class="image-counter"

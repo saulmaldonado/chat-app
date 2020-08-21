@@ -25,6 +25,7 @@ type SocketConnectionConfig = {
 type SocketSendMessagePayload = {
   message: string | ArrayBuffer;
   id: string;
+  price?: number;
 };
 
 @Component({
@@ -60,12 +61,17 @@ export default class ChatApp extends Vue {
 
     this.io.on(
       this.socket.sendMessageEvent,
-      ({ message, id }: SocketSendMessagePayload) => {
+      ({ message, id, price }: SocketSendMessagePayload) => {
         const direction =
           id === this.socketID ? 'outgoing' : 'incoming';
         if (typeof message === 'string') {
           this.addMessage(
-            new Message(this.mockIncrementingID++, message, direction)
+            new Message(
+              this.mockIncrementingID++,
+              message,
+              direction,
+              price
+            )
           );
         } else {
           const imageURL = this.ArrayBufferToURL(message);
