@@ -9,12 +9,6 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 import { Message } from './MessageBubble.vue';
 import MessageBubble from './MessageBubble.vue';
 
-export interface ChatInterface extends Vue {
-  messages: Message[];
-
-  scrollDown: () => void;
-}
-
 @Component({
   components: { MessageBubble },
 })

@@ -15,7 +15,7 @@ import socketio from 'socket.io-client';
 import Navigation from './Navigation.vue';
 import InputField from './InputField.vue';
 import MessageBubble, { Message } from './MessageBubble.vue';
-import Chat, { ChatInterface } from './Chat.vue';
+import Chat from './Chat.vue';
 
 type SocketConnectionConfig = {
   hostname: string;
@@ -37,7 +37,7 @@ export default class ChatApp extends Vue {
   @Prop() private socket!: SocketConnectionConfig;
 
   $refs!: {
-    chatWindow: ChatInterface;
+    chatWindow: Chat;
   };
 
   mockIncrementingID = 1;
@@ -91,7 +91,7 @@ export default class ChatApp extends Vue {
     this.io!.emit(this.socket.sendMessageEvent, message, price);
   }
 
-  addMessage(message: Message) {
+  async addMessage(message: Message) {
     if (Array.isArray(message.text)) {
       const lastItem: Message | undefined = this.messages[
         this.messages.length - 1
@@ -106,6 +106,9 @@ export default class ChatApp extends Vue {
       }
     }
     this.messages.push(message);
+
+    // wait until DOM updates with newest message bubble to scroll down
+    await this.$nextTick();
     this.$refs.chatWindow.scrollDown();
   }
 
