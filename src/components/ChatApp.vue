@@ -2,7 +2,7 @@
   <div class="frame">
     <div class="content">
       <Navigation :name="name" :status="status" />
-      <Chat :messages="messages" />
+      <Chat :messages="messages" :scrollDown="scrollDown" ref="chatWindow" />
       <InputField :sendMessage="sendMessage" />
     </div>
   </div>
@@ -37,7 +37,7 @@ export default class ChatApp extends Vue {
   @Prop() private socket!: SocketConnectionConfig;
 
   $refs!: {
-    test: HTMLImageElement;
+    chatWindow: Chat;
   };
 
   mockIncrementingID = 1;
@@ -106,6 +106,7 @@ export default class ChatApp extends Vue {
       }
     }
     this.messages.push(message);
+    this.$refs.chatWindow.scrollDown();
   }
 
   messages: Message[] = [];

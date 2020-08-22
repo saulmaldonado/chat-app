@@ -1,10 +1,6 @@
 <template>
-  <div class="messages">
-    <MessageBubble
-      v-for="message in messages"
-      :key="message.id"
-      :message="message"
-    />
+  <div class="messages" ref="chatWindow">
+    <MessageBubble v-for="message in messages" :key="message.id" :message="message" />
   </div>
 </template>
 
@@ -34,6 +30,14 @@ export default class Chat extends Vue {
       }),
   })
   messages!: Message[];
+
+  $refs!: {
+    chatWindow: HTMLDivElement;
+  };
+
+  scrollDown(chatWindow: HTMLDivElement): void {
+    this.$refs.chatWindow.scrollTop = this.$refs.chatWindow.scrollHeight;
+  }
 }
 </script>
 

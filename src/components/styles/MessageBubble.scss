@@ -10,9 +10,9 @@
   @include word-wrap();
 }
 
-.bubble:first-child {
-  margin-top: auto;
-}
+// .bubble:first-child {
+//   margin-top: auto;
+// }
 
 .bubble:not(:first-child) {
   margin-top: 10px;
