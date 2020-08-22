@@ -58,21 +58,25 @@
   border-radius: 50%;
 
   position: relative;
+
+  box-sizing: border-box;
 }
 .options::before {
   position: absolute;
-  bottom: 5px;
+  bottom: 6px;
   content: '';
   border: 2px solid $white;
   left: -2px;
 
   border-radius: 50%;
 }
+
 .options::after {
   position: absolute;
-  top: 5px;
-  left: -2px;
+  top: 6px;
   content: '';
   border: 2px solid $white;
+  left: -2px;
+
   border-radius: 50%;
 }
