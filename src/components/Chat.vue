@@ -35,7 +35,7 @@ export default class Chat extends Vue {
     chatWindow: HTMLDivElement;
   };
 
-  scrollDown(): void {
+  public scrollDown(): void {
     this.$refs.chatWindow.scrollTop = this.$refs.chatWindow.scrollHeight;
   }
 }

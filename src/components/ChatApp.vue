@@ -2,7 +2,7 @@
   <div class="frame">
     <div class="content">
       <Navigation :name="name" :status="status" />
-      <Chat :messages="messages" :scrollDown="scrollDown" ref="chatWindow" />
+      <Chat :messages="messages" ref="chatWindow" />
       <InputField :sendMessage="sendMessage" />
     </div>
   </div>
