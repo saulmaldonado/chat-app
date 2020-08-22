@@ -32,7 +32,7 @@
       />
     </div>
 
-    <button type="submit" :disabled="text ? false : true">
+    <button type="submit" :disabled="text || picturesCount ? false : true">
       <img src="../assets/images/chevron-right-solid.svg" alt="submit" class="submit-chevron" />
     </button>
   </form>
