@@ -1,6 +1,13 @@
 @import './variables';
 @import './mixins';
 
+@mixin onFocusAndHover() {
+  &:focus,
+  &:hover {
+    background-color: $moderateViolet;
+  }
+}
+
 form {
   border-radius: 20px;
 
@@ -50,6 +57,13 @@ button[type='submit'] {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.2s;
+
+  @include onFocusAndHover();
+
+  &:disabled {
+    background-color: grey;
+  }
 }
 
 #pictures {

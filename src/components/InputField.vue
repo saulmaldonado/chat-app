@@ -2,7 +2,7 @@
   <form @submit.prevent="onSubmit">
     <input v-model="text" name="message" type="text" placeholder="Type a message..." />
     <input type="file" id="pictures" name="pictures" accept="image/jpeg" ref="pictures" multiple />
-    <div class="price-select" ref="dollarIcon" v-on:click="focusPriceInput">
+    <div class="price-select" ref="dollarIcon" tabindex="0" @focus="focusPriceInput">
       <div class="price-popup">
         $
         <input
@@ -11,7 +11,7 @@
           max="999"
           v-model="price"
           ref="priceInput"
-          v-on:blur="usFocusPriceInput"
+          v-on:blur="unFocusPriceInput"
         />
       </div>
       <div class="dollar-icon">
@@ -28,11 +28,11 @@
         src="../assets/images/camera-solid.svg"
         alt="upload-pictures"
         class="upload-pictures"
-        v-on:click="promptFileUpload"
+        @click="promptFileUpload"
       />
     </div>
 
-    <button type="submit">
+    <button type="submit" :disabled="text ? false : true">
       <img src="../assets/images/chevron-right-solid.svg" alt="submit" class="submit-chevron" />
     </button>
   </form>
@@ -94,7 +94,7 @@ export default class InputField extends Vue {
     this.$refs.priceInput.focus();
   }
 
-  usFocusPriceInput() {
+  unFocusPriceInput() {
     this.$refs.dollarIcon.classList.remove('active');
   }
 }
