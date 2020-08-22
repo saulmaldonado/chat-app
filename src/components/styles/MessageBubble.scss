@@ -2,17 +2,14 @@
 @import './mixins';
 
 .bubble {
-  max-width: 65%;
+  max-width: 55%;
   padding: 3px;
+  font-size: 0.85rem;
 
   box-sizing: border-box;
 
   @include word-wrap();
 }
-
-// .bubble:first-child {
-//   margin-top: auto;
-// }
 
 .bubble:not(:first-child) {
   margin-top: 10px;
@@ -30,7 +27,7 @@
 .bubble.incoming {
   border-radius: 15px 15px 15px 5px;
 
-  background-color: $paleViolet;
+  background-color: $lightPurple;
   color: $moderateViolet;
 
   align-self: flex-start;
@@ -122,7 +119,6 @@
 }
 
 p {
-  font-size: 0.7rem;
   text-align: left;
   margin: 5px;
 }

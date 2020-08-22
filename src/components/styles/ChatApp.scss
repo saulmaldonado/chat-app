@@ -1,8 +1,8 @@
 @import './variables';
 
 .frame {
-  height: 609px;
-  width: 300px;
+  height: 700px;
+  width: 345px;
   border-radius: 30px;
   box-shadow: $shadow;
   background-color: white;
@@ -39,9 +39,9 @@
   justify-content: space-between;
 }
 
-@media (max-height: 620px) {
-  .frame {
-    height: 550px;
-    width: 271px;
-  }
-}
+// @media (max-height: 620px) {
+//   .frame {
+//     height: 550px;
+//     width: 271px;
+//   }
+// }

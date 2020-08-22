@@ -11,6 +11,8 @@
   border-bottom-right-radius: 5px;
   background-image: $gradient;
 
+  box-shadow: 0 3px 3px 0px #888888;
+
   padding-right: 20px;
   padding-left: 20px;
 
@@ -27,10 +29,10 @@
   }
 
   .avatar {
-    height: 25px;
-    width: 25px;
+    height: 30px;
+    width: 30px;
     border-radius: 50%;
-    border: 1px solid $white;
+    border: 1.5px solid $white;
   }
 }
 
@@ -44,17 +46,17 @@
   }
 
   .name {
-    font-size: 0.8rem;
+    font-size: 1rem;
     margin-bottom: 0.2rem;
   }
 
   .status {
-    font-size: 0.55rem;
+    font-size: 0.7rem;
     color: $paleViolet;
   }
 }
 .options {
-  border: 2px solid $white;
+  border: 3px solid $white;
   border-radius: 50%;
 
   position: relative;
@@ -63,20 +65,20 @@
 }
 .options::before {
   position: absolute;
-  bottom: 6px;
+  bottom: 7px;
   content: '';
-  border: 2px solid $white;
-  left: -2px;
+  border: 3px solid $white;
+  left: -3px;
 
   border-radius: 50%;
 }
 
 .options::after {
   position: absolute;
-  top: 6px;
+  top: 7px;
   content: '';
-  border: 2px solid $white;
-  left: -2px;
+  border: 3px solid $white;
+  left: -3px;
 
   border-radius: 50%;
 }

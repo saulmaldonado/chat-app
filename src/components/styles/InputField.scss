@@ -9,7 +9,7 @@
 }
 
 form {
-  border-radius: 20px;
+  border-radius: 25px;
 
   background-color: $white;
 
@@ -20,13 +20,14 @@ form {
   display: flex;
   justify-content: space-between;
 
-  padding: 5px;
+  padding: 10px;
 }
 
 input[name='message'] {
   margin-left: 10px;
   box-sizing: border-box;
   padding: 5px;
+  font-size: 0.85rem;
 
   max-width: 60%;
 
@@ -44,20 +45,23 @@ input[name='message'] {
 
 input[name='message']::placeholder {
   margin-left: 5px;
-  font-size: 0.7rem;
+  color: $grayishBlue;
+  font-size: 0.8rem;
 }
 
 button[type='submit'] {
   border-radius: 50%;
   border: none;
   color: $white;
-  height: 30px;
-  width: 30px;
+  height: 35px;
+  width: 35px;
   background-color: black;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: 0.2s;
+
+  cursor: pointer;
 
   @include onFocusAndHover();
 
