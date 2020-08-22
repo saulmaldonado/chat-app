@@ -15,7 +15,7 @@ import socketio from 'socket.io-client';
 import Navigation from './Navigation.vue';
 import InputField from './InputField.vue';
 import MessageBubble, { Message } from './MessageBubble.vue';
-import Chat from './Chat.vue';
+import Chat, { ChatInterface } from './Chat.vue';
 
 type SocketConnectionConfig = {
   hostname: string;
@@ -37,7 +37,7 @@ export default class ChatApp extends Vue {
   @Prop() private socket!: SocketConnectionConfig;
 
   $refs!: {
-    chatWindow: Chat;
+    chatWindow: ChatInterface;
   };
 
   mockIncrementingID = 1;

@@ -9,6 +9,12 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 import { Message } from './MessageBubble.vue';
 import MessageBubble from './MessageBubble.vue';
 
+export interface ChatInterface extends Vue {
+  messages: Message[];
+
+  scrollDown: () => void;
+}
+
 @Component({
   components: { MessageBubble },
 })
@@ -35,7 +41,7 @@ export default class Chat extends Vue {
     chatWindow: HTMLDivElement;
   };
 
-  scrollDown(chatWindow: HTMLDivElement): void {
+  scrollDown(): void {
     this.$refs.chatWindow.scrollTop = this.$refs.chatWindow.scrollHeight;
   }
 }
