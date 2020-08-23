@@ -63,11 +63,29 @@
 @keyframes SlideInFromBottom {
   from {
     opacity: 0;
-    transform: translateY(40px) translateX(-6vw);
+
+    transform: translate(-6vw, 40px);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0px) translateX(-6vw);
+
+    transform: translate(-6vw, 0px);
+  }
+}
+
+@media (max-width: 870px) {
+  @keyframes SlideInFromBottom {
+    from {
+      opacity: 0;
+
+      transform: translate(0vw, 40px);
+    }
+
+    to {
+      opacity: 1;
+
+      transform: translate(0vw, 0px);
+    }
   }
 }
