@@ -9,6 +9,7 @@
 }
 
 form {
+  box-sizing: border-box;
   border-radius: 25px;
 
   background-color: $white;
@@ -162,7 +163,7 @@ button[type='submit'] {
       height: 15px;
       width: 30px;
       border-radius: 20px;
-      background-image: $gradient;
+      background-color: $moderateViolet;
       font-size: 10px;
       color: white;
       line-height: 17px;
@@ -183,7 +184,7 @@ button[type='submit'] {
   height: 15px;
   width: 15px;
   border-radius: 50%;
-  background-image: $gradient;
+  background-color: $moderateViolet;
   font-size: 10px;
   color: white;
   line-height: 17px;
