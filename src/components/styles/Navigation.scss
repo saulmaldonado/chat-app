@@ -29,7 +29,7 @@
     height: 30px;
     width: 30px;
     border-radius: 50%;
-    border: 1.5px solid $white;
+    border: 2px solid $white;
   }
 }
 
@@ -57,7 +57,57 @@
   border-radius: 50%;
   position: relative;
   box-sizing: border-box;
+  cursor: pointer;
+
+  .tooltip {
+    display: none;
+  }
+
+  &:focus,
+  &:hover {
+    .tooltip {
+      position: absolute;
+      border-radius: 10px;
+      box-sizing: border-box;
+      height: 40px;
+      width: 100px;
+
+      z-index: 5;
+
+      left: -50px;
+      top: 30px;
+      padding-right: 10px;
+      padding-left: 10px;
+      background-color: grey;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+
+      animation-name: FadeInTooltip;
+      animation-duration: 0.25s;
+      animation-timing-function: cubic-bezier(0.7, 1.5, 0.78, 1.5);
+      animation-fill-mode: both;
+
+      &:after {
+        content: ' ';
+        position: absolute;
+        top: -74%;
+        left: 50%;
+        margin-left: -15px;
+        border-width: 15px;
+        border-style: solid;
+        border-color: transparent transparent grey transparent;
+      }
+
+      img {
+        height: 20px;
+        width: 20px;
+      }
+    }
+  }
 }
+
 .options::before {
   position: absolute;
   bottom: 7px;
@@ -75,4 +125,15 @@
   border: 3px solid $white;
   left: -3px;
   border-radius: 50%;
+}
+
+@keyframes FadeInTooltip {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
 }
