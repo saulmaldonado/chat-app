@@ -19,13 +19,9 @@ export default class Chat extends Vue {
       value.every((v) => {
         return (
           v instanceof Message &&
-          (() => {
-            if (Array.isArray(v.text)) {
-              return v.text.every((v) => v.startsWith('blob:'));
-            } else {
-              return true;
-            }
-          })
+          ((Array.isArray(v.text) &&
+            v.text.every((v) => v.startsWith('blob:'))) ||
+            v.text === 'string')
         );
       }),
   })

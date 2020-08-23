@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="onSubmit">
     <input v-model="text" name="message" type="text" placeholder="Type a message..." />
-    <input type="file" id="pictures" name="pictures" accept="image/jpeg" ref="pictures" multiple />
+    <input type="file" id="pictures" name="pictures" accept="image/*" ref="pictures" multiple />
     <div class="price-select" ref="dollarIcon" tabindex="0" @focus="focusPriceInput">
       <div class="price-popup">
         $
