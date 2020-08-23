@@ -98,6 +98,8 @@ html {
     font-size: 1.05rem;
     color: hsl(270, 7%, 64%);
   }
+
+  animation: SlideInFromLeft 0.8s 0.5s ease-in-out both;
 }
 
 @media (max-width: 870px) {
@@ -138,6 +140,18 @@ html {
     min-width: 0px;
     padding-left: 20px;
     padding-right: 20px;
+  }
+}
+
+@keyframes SlideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0px);
   }
 }
 </style>
