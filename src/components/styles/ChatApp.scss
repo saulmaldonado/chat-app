@@ -10,10 +10,10 @@
   padding: 10px;
   box-sizing: border-box;
   display: flex;
-
   align-items: center;
   justify-content: center;
   position: relative;
+  transition: all 0.2s ease-in-out;
 }
 
 .frame::after {
@@ -33,16 +33,27 @@
   height: 100%;
   width: 100%;
   border-radius: 20px;
-
   display: flex;
   flex-direction: column;
-
   justify-content: space-between;
 }
 
-// @media (max-height: 620px) {
-//   .frame {
-//     height: 550px;
-//     width: 271px;
-//   }
-// }
+@media (max-width: 950px) {
+  .frame {
+    height: 650px;
+    width: 320px;
+  }
+}
+
+@media (max-width: 870px) {
+  .frame {
+    transform: translateX(0px);
+  }
+}
+
+@media (max-height: 650px) {
+  .frame {
+    height: 550px;
+    width: 270px;
+  }
+}

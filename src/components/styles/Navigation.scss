@@ -10,12 +10,9 @@
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   background-image: $gradient;
-
   box-shadow: 0 3px 3px 0px #888888;
-
   padding-right: 20px;
   padding-left: 20px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -58,9 +55,7 @@
 .options {
   border: 3px solid $white;
   border-radius: 50%;
-
   position: relative;
-
   box-sizing: border-box;
 }
 .options::before {
@@ -79,6 +74,5 @@
   content: '';
   border: 3px solid $white;
   left: -3px;
-
   border-radius: 50%;
 }

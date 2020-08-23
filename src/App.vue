@@ -31,9 +31,8 @@ export default class App extends Vue {}
 body,
 html {
   font-size: 16px;
-
-  margin: 0px;
   height: 100%;
+  margin: 0px;
 }
 #app {
   @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
@@ -67,7 +66,7 @@ html {
     position: absolute;
     top: 0;
     left: -6vw;
-    z-index: -1;
+    z-index: -2;
   }
 
   &:after {
@@ -79,7 +78,7 @@ html {
     position: absolute;
     bottom: 0;
     right: 0;
-    z-index: -1;
+    z-index: -2;
   }
 }
 
@@ -98,6 +97,47 @@ html {
     line-height: 30px;
     font-size: 1.05rem;
     color: hsl(270, 7%, 64%);
+  }
+}
+
+@media (max-width: 870px) {
+  #app {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &:before {
+      border-bottom-left-radius: 100px;
+      width: 35vw;
+      height: 70vh;
+    }
+
+    .text {
+      margin-top: 10px;
+
+      text-align: center;
+    }
+
+    &:after {
+      position: fixed;
+    }
+  }
+}
+
+@media (max-width: 475px) {
+  #app {
+    margin-top: 10px;
+
+    &:after {
+      display: none;
+    }
+  }
+  .text {
+    box-sizing: border-box;
+    width: 95%;
+    min-width: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 </style>
