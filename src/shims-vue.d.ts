@@ -8,3 +8,8 @@ declare module '*.svg' {
   const content: VueConstructor<Vue>;
   export default content;
 }
+
+declare module '*.jpg' {
+  const jpgURL: string;
+  export default jpgURL;
+}

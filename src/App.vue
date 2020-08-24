@@ -7,6 +7,7 @@
         hostname: 'http://192.168.29.192:5000',
         sendMessageEvent: 'SEND_MESSAGE',
       }"
+      :profileImage="profileImage"
     />
     <div class="text">
       <h1>Simple booking</h1>
@@ -23,13 +24,16 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import ChatApp from './components/ChatApp.vue';
+import profileImage from './assets/images/avatar.jpg';
 
 @Component({
   components: {
     ChatApp,
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  profileImage = profileImage;
+}
 </script>
 
 <style lang="scss">

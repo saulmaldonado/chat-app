@@ -1,7 +1,11 @@
 <template>
   <div class="frame">
     <div class="content">
-      <Navigation :name="name" :status="status" />
+      <Navigation
+        :name="name"
+        :status="status"
+        :profileImage="profileImage"
+      />
       <Chat :messages="messages" ref="chatWindow" />
       <InputField :sendMessage="sendMessage" />
     </div>
@@ -35,6 +39,7 @@ export default class ChatApp extends Vue {
   @Prop() private name!: string;
   @Prop() private status!: string;
   @Prop() private socket!: SocketConnectionConfig;
+  @Prop() private profileImage!: string;
 
   $refs!: {
     chatWindow: Chat;

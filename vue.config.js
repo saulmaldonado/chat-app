@@ -11,7 +11,4 @@ module.exports = {
       .use('vue-svg-loader')
       .loader('vue-svg-loader');
   },
-  css: {
-    extract: false,
-  },
 };
