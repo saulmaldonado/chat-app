@@ -53,7 +53,6 @@
         alt="upload-pictures"
         class="upload-pictures"
         @click="promptFileUpload"
-        :currentColor="white"
       />
     </div>
 

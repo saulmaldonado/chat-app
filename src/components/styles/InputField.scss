@@ -8,6 +8,10 @@
   }
 }
 
+*:focus {
+  outline: none;
+}
+
 form {
   box-sizing: border-box;
   border-radius: 25px;

@@ -1,10 +1,6 @@
 <template>
   <div class="messages" ref="chatWindow">
-    <MessageBubble
-      v-for="message in messages"
-      :key="message.id"
-      :message="message"
-    />
+    <MessageBubble v-for="message in messages" :key="message.id" :message="message" />
   </div>
 </template>
 
@@ -25,7 +21,7 @@ export default class Chat extends Vue {
           v instanceof Message &&
           ((Array.isArray(v.text) &&
             v.text.every((v) => v.startsWith('blob:'))) ||
-            v.text === 'string')
+            typeof v.text === 'string')
         );
       }),
   })
