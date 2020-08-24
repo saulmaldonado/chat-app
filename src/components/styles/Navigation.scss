@@ -108,6 +108,28 @@
   }
 }
 
+.github-icon {
+  color: white;
+  height: 20px;
+  width: 20px;
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    color: $moderateViolet;
+  }
+}
+
+.portfolio-icon {
+  color: white;
+  height: 20px;
+  width: 20px;
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    color: $moderateViolet;
+  }
+}
+
 .options::before {
   position: absolute;
   bottom: 7px;

@@ -38,10 +38,10 @@ input[name='message'] {
 }
 
 .submit-chevron {
-  filter: invert(1);
   height: 15px;
   width: 10px;
   transform: translateX(1px);
+  color: white;
 }
 
 input[name='message']::placeholder {
@@ -87,7 +87,14 @@ button[type='submit'] {
   height: 20px;
   width: 20px;
   align-self: center;
+  color: grey;
   cursor: pointer;
+
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    color: $moderateViolet;
+  }
 }
 
 .price-select {
@@ -157,6 +164,14 @@ button[type='submit'] {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: grey;
+
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      color: $moderateViolet;
+    }
+
     .price-counter {
       position: absolute;
       top: -11px;

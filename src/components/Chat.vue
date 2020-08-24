@@ -1,6 +1,10 @@
 <template>
   <div class="messages" ref="chatWindow">
-    <MessageBubble v-for="message in messages" :key="message.id" :message="message" />
+    <MessageBubble
+      v-for="message in messages"
+      :key="message.id"
+      :message="message"
+    />
   </div>
 </template>
 

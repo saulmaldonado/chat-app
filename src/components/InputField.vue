@@ -1,8 +1,25 @@
 <template>
   <form @submit.prevent="onSubmit">
-    <input v-model="text" name="message" type="text" placeholder="Type a message..." />
-    <input type="file" id="pictures" name="pictures" accept="image/*" ref="pictures" multiple />
-    <div class="price-select" ref="dollarIcon" tabindex="0" @focus="focusPriceInput">
+    <input
+      v-model="text"
+      name="message"
+      type="text"
+      placeholder="Type a message..."
+    />
+    <input
+      type="file"
+      id="pictures"
+      name="pictures"
+      accept="image/*"
+      ref="pictures"
+      multiple
+    />
+    <div
+      class="price-select"
+      ref="dollarIcon"
+      tabindex="0"
+      @focus="focusPriceInput"
+    >
       <div class="price-popup">
         $
         <input
@@ -15,33 +32,49 @@
         />
       </div>
       <div class="dollar-icon">
-        <div class="price-counter" :style="{ display: price ? 'block' : 'none' }">${{ price }}</div>
-        <img src="../assets/images/dollar-sign-solid.svg" alt="add-price" class="add-price" />
+        <div
+          class="price-counter"
+          :style="{ display: price ? 'block' : 'none' }"
+        >
+          ${{ price }}
+        </div>
+
+        <DollarIcon alt="add-price" class="add-price" />
       </div>
     </div>
     <div class="picture-select">
       <div
         class="image-counter"
         :style="{ display: picturesCount ? 'block' : 'none' }"
-      >{{ picturesCount }}</div>
-      <img
-        src="../assets/images/camera-solid.svg"
+      >
+        {{ picturesCount }}
+      </div>
+      <CameraIcon
         alt="upload-pictures"
         class="upload-pictures"
         @click="promptFileUpload"
+        :currentColor="white"
       />
     </div>
 
-    <button type="submit" :disabled="text || picturesCount ? false : true">
-      <img src="../assets/images/chevron-right-solid.svg" alt="submit" class="submit-chevron" />
+    <button
+      type="submit"
+      :disabled="text || picturesCount ? false : true"
+    >
+      <RightChevronIcon alt="submit" class="submit-chevron" />
     </button>
   </form>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
+import DollarIcon from '../assets/images/dollar-sign-solid.svg';
+import CameraIcon from '../assets/images/camera-solid.svg';
+import RightChevronIcon from '../assets/images/chevron-right-solid.svg';
 
-@Component
+@Component({
+  components: { DollarIcon, CameraIcon, RightChevronIcon },
+})
 export default class InputField extends Vue {
   @Prop({ type: Function }) sendMessage!: (
     message: string | ArrayBuffer,

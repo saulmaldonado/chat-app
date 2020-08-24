@@ -1,15 +1,18 @@
 {
-  "name": "chat-app",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@saulmaldonado/chat-app",
+  "version": "0.2.0",
+  "main": "dist/chat-app.common.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "start-server": "cd chat-server/ && yarn start"
+    "start-server": "cd chat-server/ && yarn start",
+    "build-lib": "vue-cli-service build --target lib src/components/index.ts"
   },
   "dependencies": {
-    "@types/socket.io-client": "^1.4.33",
     "core-js": "^3.6.5",
     "socket.io-client": "^2.3.0",
     "vue": "^2.6.11",
@@ -17,6 +20,7 @@
     "vue-property-decorator": "^8.4.2"
   },
   "devDependencies": {
+    "@types/socket.io-client": "^1.4.33",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -32,6 +36,7 @@
     "prettier": "^1.19.1",
     "sass-loader": "^8.0.2",
     "typescript": "~3.9.3",
+    "vue-svg-loader": "^0.17.0-beta.1",
     "vue-template-compiler": "^2.6.11"
   }
 }
