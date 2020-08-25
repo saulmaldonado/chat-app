@@ -4,7 +4,7 @@
       name="Samuel Green"
       status="Available to Walk"
       :socket="{
-        hostname: 'http://192.168.29.192:5000',
+        hostname: 'https://saulmaldonado.xyz',
         sendMessageEvent: 'SEND_MESSAGE',
       }"
       :profileImage="profileImage"

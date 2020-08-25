@@ -1,11 +1,7 @@
 <template>
   <div class="frame">
     <div class="content">
-      <Navigation
-        :name="name"
-        :status="status"
-        :profileImage="profileImage"
-      />
+      <Navigation :name="name" :status="status" :profileImage="profileImage" />
       <Chat :messages="messages" ref="chatWindow" />
       <InputField :sendMessage="sendMessage" />
     </div>
@@ -58,7 +54,9 @@ export default class ChatApp extends Vue {
   }
 
   mounted() {
-    this.io = socketio(this.socket.hostname);
+    this.io = socketio(this.socket.hostname, {
+      path: '/chat-server',
+    });
 
     this.io.on('connect', () => {
       this.socketID = this.io!.id;
