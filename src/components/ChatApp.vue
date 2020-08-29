@@ -1,7 +1,11 @@
 <template>
   <div class="frame">
     <div class="content">
-      <Navigation :name="name" :status="status" :profileImage="profileImage" />
+      <Navigation
+        :name="name"
+        :status="status"
+        :profileImage="profileImage"
+      />
       <Chat :messages="messages" ref="chatWindow" />
       <InputField :sendMessage="sendMessage" />
     </div>
@@ -58,8 +62,9 @@ export default class ChatApp extends Vue {
       path: '/chat-server',
     });
 
-    this.io.on('connect', () => {
+    this.io.once('connect', () => {
       this.socketID = this.io!.id;
+      console.log(this.socketID);
     });
 
     this.io.on(
@@ -91,7 +96,12 @@ export default class ChatApp extends Vue {
   }
 
   sendMessage(message: string | ArrayBuffer, price?: number | null) {
-    this.io!.emit(this.socket.sendMessageEvent, message, price);
+    this.io!.emit(
+      this.socket.sendMessageEvent,
+      message,
+      this.socketID,
+      price
+    );
   }
 
   async addMessage(message: Message) {
@@ -105,7 +115,8 @@ export default class ChatApp extends Vue {
         Array.isArray(lastItem.text) &&
         lastItem.direction === message.direction
       ) {
-        return lastItem.text.push(...message.text);
+        lastItem.text.push(...message.text);
+        return;
       }
     }
     this.messages.push(message);
